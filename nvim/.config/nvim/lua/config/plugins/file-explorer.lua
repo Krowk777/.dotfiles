@@ -1,5 +1,5 @@
 local config = function()
-    require('oil').setup({
+    require("oil").setup({
         skip_confirm_for_simple_edits = true,
         keymaps = {
             ["g?"] = { "actions.show_help", mode = "n" },
@@ -34,17 +34,21 @@ local config = function()
                 { "type", "asc" },
                 { "name", "asc" },
             },
-            highlight_filename = function(entry, is_hidden, is_link_target,
-                                          is_link_orphan)
+            highlight_filename = function(
+                entry,
+                is_hidden,
+                is_link_target,
+                is_link_orphan
+            )
                 return nil
             end,
         },
     })
-    vim.keymap.set('n', '-', '<cmd>Oil<CR>', { desc = 'go to file explorer' })
+    vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "go to file explorer" })
 end
 
 return {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     config = config,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
