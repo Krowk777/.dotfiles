@@ -45,21 +45,15 @@ local set_keymaps = function()
     )
     vim.keymap.set(
         "n",
-        "<Leader>ss",
+        "<Leader>s'",
         builtin.lsp_document_symbols,
-        { desc = "[s]earch document [s]ymbols" }
+        { desc = "[s]earch document symbols" }
     )
     vim.keymap.set(
         "n",
         "<Leader>s;",
         builtin.lsp_workspace_symbols,
         { desc = "[s]earch all symbols" }
-    )
-    vim.keymap.set(
-        "n",
-        "<Leader>sw",
-        builtin.lsp_dynamic_workspace_symbols,
-        { desc = "[s]earch workplace symbols" }
     )
     vim.keymap.set("n", "<C-r>", vim.lsp.buf.rename, { desc = "[r]ename" })
     vim.keymap.set(
