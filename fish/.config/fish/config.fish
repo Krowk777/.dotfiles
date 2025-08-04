@@ -1,3 +1,8 @@
+set local_config "$HOME/.local-config"
+if test -f "$local_config"
+	source "$local_config"
+end
+
 set -g fish_greeting
 fish_config theme choose Nord
 
