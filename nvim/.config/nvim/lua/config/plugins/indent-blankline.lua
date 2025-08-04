@@ -1,11 +1,10 @@
-local config = function()
-end
+local config = function() end
 
 return {
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    opts = {},
-    config = config
-  },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+        config = config,
+    },
 }
