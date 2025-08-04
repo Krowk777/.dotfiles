@@ -7,9 +7,14 @@ set -g fish_greeting
 fish_config theme choose Nord
 
 starship init fish | source
-fzf --fish | source
 fnm env --use-on-cd --shell fish | source
+
+fzf --fish | source
+set -Ux FZF_DEFAULT_OPTS '--style full --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 
 if type -q fdfind
     alias fd="fdfind"
+end
+if type -q batcat
+    alias bat="batcat"
 end
