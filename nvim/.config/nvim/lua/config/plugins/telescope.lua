@@ -64,6 +64,9 @@ local config = function()
 
     local builtin = require("telescope.builtin")
 
+    vim.keymap.set("n", "<Leader>sf", function()
+        builtin.git_files({ show_untracked = true, hidden = true })
+    end, { desc = "[s]earch [f]iles" })
     vim.keymap.set(
         "n",
         "<Leader>s.",
@@ -93,12 +96,6 @@ local config = function()
     )
     vim.keymap.set(
         "n",
-        "<Leader>sf",
-        builtin.find_files,
-        { desc = "[s]earch [f]iles" }
-    )
-    vim.keymap.set(
-        "n",
         "<Leader>sb",
         builtin.buffers,
         { desc = "[s]earch [b]uffers" }
@@ -110,9 +107,6 @@ local config = function()
             file_ignore_patterns = { "%.git/" },
         })
     end, { desc = "[s]earch [a]ll files" })
-    vim.keymap.set("n", "<Leader>sg", function()
-        builtin.git_files({ show_untracked = true })
-    end, { desc = "[s]earch [g]it files" })
     vim.keymap.set("n", "<Leader>sl", function()
         builtin.live_grep({
             additional_args = { "--hidden" },

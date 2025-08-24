@@ -8,6 +8,10 @@ local handle_lsp_attach = function(args)
     pcall(function()
         vim.keymap.del("n", "<C-r>")
     end)
+
+    if client.name == "ruff" then
+        client.server_capabilities.hoverProvider = false
+    end
 end
 
 local handle_lsp_detach = function(args)
@@ -89,10 +93,25 @@ local config = function()
             "omnisharp",
             "terraformls",
             "basedpyright",
+            "ruff",
             "ts_ls",
             "jsonls",
             "html",
             "cssls",
+        },
+    })
+    require("lspconfig").ruff.setup({
+        init_options = {
+            settings = {
+                configuration = {
+                    lint = {
+                        ["select"] = { "E", "F", "W" },
+                    },
+                },
+                configurationPreference = "filesystemFirst",
+                fixAll = false,
+                organizeImports = false,
+            },
         },
     })
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -120,33 +139,6 @@ local dependencies = {
         },
     },
     "nvim-telescope/telescope.nvim",
-    {
-        "stevearc/conform.nvim",
-        opts = {
-            formatters_by_ft = {
-                sh = { "shfmt" },
-                python = { "black" },
-                lua = { "stylua" },
-
-                javascript = { "prettier" },
-                typescript = { "prettier" },
-                html = { "prettier" },
-                css = { "prettier" },
-                scss = { "prettier" },
-                less = { "prettier" },
-                json = { "prettier" },
-                yaml = { "prettier" },
-                markdown = { "prettier" },
-            },
-            default_format_opts = {
-                lsp_format = "fallback",
-            },
-            format_on_save = {
-                timeout_ms = 800,
-                lsp_format = "fallback",
-            },
-        },
-    },
 }
 
 return {

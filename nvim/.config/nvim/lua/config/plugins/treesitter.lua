@@ -17,6 +17,7 @@ local opts = {
         "css",
         "json",
         "yaml",
+        "toml",
     },
     sync_install = false,
     auto_install = false,
