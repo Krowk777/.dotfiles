@@ -100,7 +100,7 @@ local config = function()
             "cssls",
         },
     })
-    require("lspconfig").ruff.setup({
+    vim.lsp.config("ruff", {
         init_options = {
             settings = {
                 configuration = {
