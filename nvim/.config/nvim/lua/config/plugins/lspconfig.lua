@@ -49,13 +49,13 @@ local set_keymaps = function()
     )
     vim.keymap.set(
         "n",
-        "<Leader>s'",
+        "<Leader>s;",
         builtin.lsp_document_symbols,
         { desc = "[s]earch document symbols" }
     )
     vim.keymap.set(
         "n",
-        "<Leader>s;",
+        "<Leader>s'",
         builtin.lsp_workspace_symbols,
         { desc = "[s]earch all symbols" }
     )
