@@ -1,8 +1,3 @@
-local find_files = function(dir)
-    local builtin = require("telescope.builtin")
-    builtin.find_files({ cwd = dir })
-end
-
 local function get_fd_cmd()
     if vim.fn.executable("fd") == 1 then
         return "fd"
@@ -65,7 +60,12 @@ local config = function()
     local builtin = require("telescope.builtin")
 
     vim.keymap.set("n", "<Leader>sf", function()
-        builtin.git_files({ show_untracked = true, hidden = true })
+        local is_success, _ = pcall(function()
+            builtin.git_files({ show_untracked = true, hidden = true })
+        end)
+        if not is_success then
+            builtin.find_files({ hidden = true })
+        end
     end, { desc = "[s]earch [f]iles" })
     vim.keymap.set(
         "n",
@@ -74,7 +74,7 @@ local config = function()
         { desc = "[s]earch recent files" }
     )
     vim.keymap.set("n", "<Leader>sc", function()
-        find_files(vim.fn.stdpath("config"))
+        builtin.find_files({ cwd = vim.fn.stdpath("config") })
     end, { desc = "[s]earch [c]onfig" })
     vim.keymap.set(
         "n",
