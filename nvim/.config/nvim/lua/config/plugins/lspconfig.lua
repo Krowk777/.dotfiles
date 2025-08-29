@@ -123,7 +123,13 @@ local config = function()
                 local fname = vim.api.nvim_buf_get_name(bufnr)
                 local is_fugitive_buffer =
                     string.find(fname, "fugitive://", 1, true)
-                if not is_fugitive_buffer then
+                if is_fugitive_buffer then
+                    return
+                end
+
+                if config.root_dir then
+                    config.root_dir(bufnr, on_dir)
+                else
                     on_dir(util.root_pattern(config.root_markers)(fname))
                 end
             end,
