@@ -114,6 +114,21 @@ local config = function()
             },
         },
     })
+    local servers = require("mason-lspconfig").get_installed_servers()
+    for _, server in ipairs(servers) do
+        local config = vim.lsp.config[server]
+        local util = require("lspconfig.util")
+        vim.lsp.config(server, {
+            root_dir = function(bufnr, on_dir)
+                local fname = vim.api.nvim_buf_get_name(bufnr)
+                local is_fugitive_buffer =
+                    string.find(fname, "fugitive://", 1, true)
+                if not is_fugitive_buffer then
+                    on_dir(util.root_pattern(config.root_markers)(fname))
+                end
+            end,
+        })
+    end
     vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = handle_lsp_attach,
