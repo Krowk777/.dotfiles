@@ -1,6 +1,6 @@
 set local_config "$HOME/.local-config"
 if test -f "$local_config"
-	source "$local_config"
+  source "$local_config"
 end
 
 set -g fish_greeting
@@ -17,4 +17,10 @@ if type -q fdfind
 end
 if type -q batcat
     alias bat="batcat"
+end
+
+function fish_user_key_bindings
+    fish_default_key_bindings -M insert
+    fish_vi_key_bindings --no-erase
+    bind -M insert \cj "fish_vi_key_bindings --no-erase default"
 end
