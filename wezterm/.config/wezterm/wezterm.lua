@@ -13,4 +13,6 @@ config.font_size = 11
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
 
+config.enable_wayland = false
+
 return config
