@@ -31,6 +31,12 @@ local set_keymaps = function()
     )
     vim.keymap.set(
         "n",
+        "gy",
+        builtin.lsp_type_definitions,
+        { desc = "[g]oto t[y]pe definition" }
+    )
+    vim.keymap.set(
+        "n",
         "gd",
         builtin.lsp_definitions,
         { desc = "[g]oto [d]efinition" }
