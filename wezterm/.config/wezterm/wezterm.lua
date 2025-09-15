@@ -11,7 +11,7 @@ config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 11
 
 config.enable_tab_bar = false
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 
 config.enable_wayland = false
 
