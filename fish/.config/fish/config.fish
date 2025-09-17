@@ -17,6 +17,9 @@ end
 if type -q batcat
     alias bat="batcat"
 end
+if type -q zellij
+	alias zj="zellij"
+end
 
 function fish_user_key_bindings
     fish_default_key_bindings -M insert
