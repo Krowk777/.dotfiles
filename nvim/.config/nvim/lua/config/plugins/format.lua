@@ -24,6 +24,7 @@ local config = function()
             json = { "prettier" },
             yaml = { "prettier" },
             markdown = { "prettier" },
+            kdl = { "kdlfmt" },
         },
     })
 end
