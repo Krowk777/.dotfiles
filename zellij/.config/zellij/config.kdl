@@ -181,16 +181,6 @@ keybinds clear-defaults=true {
             MovePane "right"
         }
     }
-    scroll {
-        bind "e" {
-            EditScrollback
-            SwitchToMode "normal"
-        }
-        bind "s" {
-            SwitchToMode "entersearch"
-            SearchInput 0
-        }
-    }
     session {
         bind "a" {
             LaunchOrFocusPlugin "zellij:about" {
@@ -237,6 +227,27 @@ keybinds clear-defaults=true {
         bind "esc" {
             UndoRenamePane
             SwitchToMode "pane"
+        }
+    }
+    scroll {
+        bind "e" {
+            EditScrollback
+            SwitchToMode "locked"
+        }
+        bind "s" {
+            SwitchToMode "entersearch"
+            SearchInput 0
+        }
+    }
+    entersearch {
+        bind "Ctrl c" {
+            SwitchToMode "scroll"
+        }
+        bind "esc" {
+            SwitchToMode "scroll"
+        }
+        bind "enter" {
+            SwitchToMode "search"
         }
     }
  // search {
@@ -310,17 +321,6 @@ keybinds clear-defaults=true {
     //     }
     //     bind "u" {
     //         HalfPageScrollUp
-    //     }
-    // }
-    // entersearch {
-    //     bind "Ctrl c" {
-    //         SwitchToMode "scroll"
-    //     }
-    //     bind "esc" {
-    //         SwitchToMode "scroll"
-    //     }
-    //     bind "enter" {
-    //         SwitchToMode "search"
     //     }
     // }
 }

@@ -10,6 +10,7 @@ starship init fish | source
 
 fzf --fish | source
 set -Ux FZF_DEFAULT_OPTS '--style full --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+set -gx EDITOR "nvim"
 
 if type -q fdfind
     alias fd="fdfind"
@@ -17,9 +18,9 @@ end
 if type -q batcat
     alias bat="batcat"
 end
-if type -q zellij
-	alias zj="zellij"
-end
+
+alias zj="zellij"
+alias zjls='zj a "$(zellij ls -s | fzf)"'
 
 function fish_user_key_bindings
     fish_default_key_bindings -M insert
