@@ -21,6 +21,7 @@ end
 
 alias zj="zellij"
 alias zjls='zj a "$(zellij ls -s | fzf)"'
+alias tf="terraform"
 
 function fish_user_key_bindings
     fish_default_key_bindings -M insert
