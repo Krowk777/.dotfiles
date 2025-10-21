@@ -18,6 +18,7 @@ local opts = {
         "json",
         "yaml",
         "toml",
+        "gitignore",
     },
     sync_install = false,
     auto_install = false,
