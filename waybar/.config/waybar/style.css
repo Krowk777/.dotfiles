@@ -1,0 +1,51 @@
+@import "macchiato.css";
+
+* {
+  font-family: FiraCode Nerd Font;
+  font-size: 1rem;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#clock {
+  background-color: @base;
+  padding: 0.4rem 0.8rem;
+  margin: 0.4rem 0rem 0.1rem 0rem;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.1rem 0.2rem;
+}
+
+#workspaces button.active {
+  color: @red;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+}
+
+#clock {
+  border-radius: 0rem 1rem 1rem 0rem;
+  margin-right: 1rem;
+}
+
+#pulseaudio {
+  border-radius: 1rem 0rem 0rem 1rem;
+}

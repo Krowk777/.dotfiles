@@ -1,0 +1,59 @@
+{
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [],
+	"modules-right": [
+		"pulseaudio",
+		"network",
+		"cpu",
+		"memory",
+		"clock"
+	],
+	"hyprland/workspaces": {
+		"persistent-only": true,
+		"format": " {icon} ",
+		"format-icons": {
+			"default": ""
+		},
+		"persistent-workspaces": {
+			"*": 6
+		}
+	},
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "\ue641 {:%Y-%m-%d %H:%M}"
+	},
+	"cpu": {
+		"format": "{usage}% ",
+		"tooltip": false
+	},
+	"memory": {
+		"format": "{}% "
+	},
+	"network": {
+		"format-wifi": "{signalStrength}% ",
+		"format-ethernet": "{ipaddr}/{cidr} ",
+		"tooltip-format": "{ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "Disconnected ⚠",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"pulseaudio": {
+		"scroll-step": 5,
+		"format": "{volume}% {icon}",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"default": [
+				"",
+				"",
+				""
+			]
+		},
+		"on-click": "pavucontrol"
+	}
+}
