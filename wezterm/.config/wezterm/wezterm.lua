@@ -2,8 +2,8 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.color_scheme = "Catppuccin Macchiato"
-config.text_background_opacity = 0.90
-config.window_background_opacity = 0.80
+config.text_background_opacity = 0.95
+config.window_background_opacity = 0.88
 config.initial_cols = 160
 config.initial_rows = 48
 
