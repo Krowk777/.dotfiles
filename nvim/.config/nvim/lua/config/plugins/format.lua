@@ -17,6 +17,7 @@ local config = function()
             lua = { "stylua" },
             javascript = { "prettier" },
             typescript = { "prettier" },
+            typescriptreact = { "prettier" },
             html = { "prettier" },
             css = { "prettier" },
             scss = { "prettier" },
