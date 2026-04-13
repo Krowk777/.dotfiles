@@ -1,5 +1,5 @@
-local opts = {
-    ensure_installed = {
+local config = function()
+    require("nvim-treesitter").install({
         "c",
         "cpp",
         "c_sharp",
@@ -19,20 +19,13 @@ local opts = {
         "yaml",
         "toml",
         "gitignore",
-    },
-    sync_install = false,
-    auto_install = false,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { "ruby" },
-    },
-    indent = { enable = true, disable = { "ruby" } },
-}
+    })
+end
 
 return {
     "nvim-treesitter/nvim-treesitter",
     name = "nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
-    opts = opts,
+    config = config,
 }

@@ -1,10 +1,4 @@
-local config = function()
-    require("lualine").setup({
-        options = {
-            theme = "catppuccin",
-        },
-    })
-end
+local config = function() end
 
 return {
     "nvim-lualine/lualine.nvim",
