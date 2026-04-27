@@ -324,6 +324,10 @@ keybinds clear-defaults=true {
     //     }
     // }
 }
+post_command_discovery_hook "bash -c 'if echo \"$RESURRECT_COMMAND\" | grep -q 'nvim'; then echo \"$SHELL -c \\\"$RESURRECT_COMMAND; exec $SHELL\\\"\"; else echo \"$RESURRECT_COMMAND\"; fi'"
+session_serialization true
+pane_viewport_serialization true
+serialization_interval 3
 plugins {
     about location="zellij:about"
     compact-bar location="zellij:compact-bar"

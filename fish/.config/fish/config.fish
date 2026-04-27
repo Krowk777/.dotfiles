@@ -18,14 +18,29 @@ end
 if type -q batcat
     alias bat="batcat"
 end
+if type -q kubectl
+  alias kb="kubectl"
+  kubectl completion fish | source
+end
 
 alias zj="zellij"
 alias zjls='zj a "$(zellij ls -s | fzf)"'
 alias tf="terraform"
+
+function fzf_complete
+    set -l cmdline (commandline)
+    set -l selection (complete -C"$cmdline" | fzf --height=40% --reverse --delimiter='\t' | cut -f1)
+    if test -n "$selection"
+        commandline -rt "$selection"
+    end
+    commandline -f repaint
+end
 
 function fish_user_key_bindings
     fish_default_key_bindings -M insert
     fish_vi_key_bindings --no-erase
     bind -M insert \cj "fish_vi_key_bindings --no-erase default"
     bind -M insert \cn down-or-search
+    bind -M insert \co fzf_complete
+    bind -M default \co fzf_complete
 end
